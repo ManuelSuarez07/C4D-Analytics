@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Análisis</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row; /* Aseguramos que todo se alinee en una fila */
+        }
+
+        /* Estilos para el menú lateral */
+        .sidebar {
+            width: 250px; /* Establecer el ancho fijo del menú lateral */
+            background-color: #1E071D;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: fixed; /* Fija la barra lateral en su lugar */
+        }
+
+        .sidebar h2 {
+            font-size: 1.4em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #f0e4f7;
+        }
+
+        .sidebar a {
+            color: #f0e4f7;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 15px;
+            width: 90%;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar a:not(.active):hover {
+            background-color: #882286;
+            color: #ffffff;
+            cursor: pointer;
+            transform: scale(1.0);
+        }
+
+        .sidebar a.active {
+            background-color: #A52E9E;
+            color: white;
+            border-left: 5px solid #f0e4f7;
+            transform: scale(1.0);
+        }
+
+        /* Estilos para el contenido principal */
+        .content {
+            flex: 1;
+            padding: 30px;
+            background-color: #bdbbbb;
+            overflow-y: auto;
+            margin-left: 250px; /* Deja espacio para el menú lateral fijo */
+            height: 100vh; /* Hace que el contenido sea desplazable */
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Estilos para el video */
+        .video-frame {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: 20px auto;
+            border: 2px solid #882286;
+            border-radius: 8px;
+            background-color: #f0e4f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilos para el pie de contacto */
+        .contact {
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            width: 100%;
+            font-size: 0.8em;
+            padding: 5px 0;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-sizing: border-box;
+        }
+
+        .contact_info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .social_icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .social_icons img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact a {
+            color: #f0e4f7;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: #A52E9E;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Menú lateral y contenido -->
+        <div class="sidebar">
+            <h2>Bienvenido<br>UNION BBVA</h2>
+            <a href="#inicio" id="link-inicio" class="active" onclick="showSection('inicio', this)">Inicio</a>
+            <a href="#analisis-mi-equipo" id="link-analisis-mi-equipo" onclick="showSection('analisis-mi-equipo', this)">Análisis mi equipo</a>
+            <a href="#analisis-equipo-rival" id="link-analisis-equipo-rival" onclick="showSection('analisis-equipo-rival', this)">Análisis equipo rival</a>
+            <a href="index.html">Cerrar sesión</a> <!-- Nueva opción de cerrar sesión -->
+        </div>
+
+        <div class="content">
+            <div id="inicio" class="section active">
+                <h1>Inicio</h1>
+                <p>Bienvenido a la interfaz de análisis de equipos. En esta página, encontrarás herramientas y recursos que te ayudarán a evaluar el rendimiento tanto de tu equipo como del equipo rival. En la sección de análisis, podrás visualizar estadísticas detalladas y videos que te brindarán información valiosa para mejorar las estrategias de juego.</p>
+                
+                <!-- Marco para el video -->
+                <div class="video-frame">
+                    <p>Video de introducción (Reemplaza este texto con el video)</p>
+                </div>
+            </div>
+            
+            <div id="analisis-mi-equipo" class="section">
+                <h1>Análisis mi equipo</h1>
+            
+                <h2>Tiros de esquina</h2>
+                <p>
+                    Se realizan dos opciones para los tiros de esquina a favor. En la primera imagen se ven dos jugadoras que arrastran marca al primer palo para que la jugadora número 6 entre con tranquilidad al segundo palo y finalice en gol. Este análisis se realiza porque el equipo rival prioriza un alto número de jugadoras para defender, su arquera sale a cortar los centros con poca seguridad, es un punto clave que se aprovechó.
+                </p>
+                <p>
+                    En la segunda imagen es una variante para que no sea tan repetitivo. Se invierten roles: se arrastran marcas al segundo palo y una jugadora simula un pase en corto para que otra compañera entre por el carril central y finalice la jugada.
+                </p>
+                <!-- Video para Tiros de esquina -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Tiro de Esquina Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            
+                <h2>Saques de meta</h2>
+                <p>
+                    Se priorizaron saques largos a los costados debido a la presión alta del equipo rival cuando se jugaba en corto. Esta estrategia permitió generar muchas acciones de peligro gracias a las jugadoras en las alas, que son desequilibrantes.
+                </p>
+                <p>
+                    En la primera imagen se observa el intercambio de posicionamiento de las alas, mientras la jugadora número 6 baja como receptora del balón (pívot). Al recibir, realiza un pase de primera intención por el carril derecho o izquierdo para avanzar hasta la línea de banda, donde puede centrar, pasar hacia atrás o rematar.
+                </p>
+                <p>
+                    En la segunda imagen se realiza el mismo intercambio de alas y una finta de la jugadora número 6 bajando a recibir, lo que arrastra o fija una marca. Luego, la arquera saca en largo al espacio mientras las jugadoras 4 y 5 realizan diagonales para recibir y crear acciones de peligro.
+                </p>
+                <!-- Videos para Saques de meta -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Tercer saque (1 y 2 ) Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                    <video controls>
+                        <source src="images/Segundo saque de arquera Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            
+                <h2>Presión al momento del saque de meta (Rival)</h2>
+                <p>
+                    En la primera imagen, se realiza un marcaje individual en la zona de finalización cuando la arquera rival juega en corto, aplicando una presión alta. En la segunda imagen, tras esta presión y el cierre de opciones de pase, se fuerza al rival a jugar nuevamente con la arquera. Finalmente, esta realiza un pase al medio campo, donde se efectúa un marcaje doble para recuperar el balón, siendo esta la opción más viable por la habilidad del equipo rival para salir jugando.
+                </p>
+                <!-- Video para Presión al momento del saque de meta -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Presion en momento de salida rival Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            
+                <h2>Saques de banda</h2>
+                <p>
+                    Para generar peligro por los carriles laterales, se planificó que la receptora realice un desmarque o diagonal para recibir con espacio y tiempo. Otra jugadora en el carril central hace un desmarque hacia el segundo palo para finalizar la jugada.
+                </p>
+                <!-- Videos para Saques de banda -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Lateral Bichota Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+            
+            <style>
+                .section {
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                }
+            
+                .section h1 {
+                    font-size: 2em;
+                    color: #444;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            
+                .section h2 {
+                    font-size: 1.5em;
+                    color: #555;
+                    margin-top: 30px;
+                    margin-bottom: 10px;
+                }
+            
+                .section p {
+                    font-size: 1em;
+                    line-height: 1.5;
+                    color: #666;
+                }
+            
+                .video-container {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+            
+                .video-container video {
+                    flex: 1;
+                    min-width: 200px;
+                    max-width: 400px;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            </style>                                 
+            
+            <div id="analisis-equipo-rival" class="section">
+                <h1>Análisis del equipo rival</h1>
+            
+                <h2>Gol en contra</h2>
+                <p>
+                    La debilidad defensiva del equipo está en las acciones de balón detenido ya que de esta forma han recibido la mayoría de goles. La jugadora 17 del equipo verde hace un desmarque en diagonal para hacer de posible receptora mientras la número 7 se posiciona al segundo palo de la arquera y ante la inseguridad y duda de la salida de la guardameta la delantera aprovecha para realizar un remate de cabeza que termina en gol.
+                </p>
+                <!-- Videos para Gol en contra -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Gol Rival.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                    <video controls>
+                        <source src="images/Gol Rival.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            
+                <h2>Saque de arco rival</h2>
+                <p>
+                    La arquera realiza un pase hacia el pivote (jugadora 17) que le permite sostener el balón gracias a sus características físicas. La jugadora número 7 realiza un desmarque hacia el carril central para recibir el balón y rematar al arco. Como alternativa, la jugadora número 7, al tener la posesión del balón, puede optar por realizar un pase filtrado a la jugadora número 24, quien decide si rematar o realizar un pase al carril central.
+                </p>
+                <!-- Video para Saque de arco rival -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Saque arquera Rival.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            
+                <h2>Saque de banda</h2>
+                <p>
+                    La jugadora que realiza el saque envía el balón al segundo palo. Las atacantes que no disponen del balón realizan movimientos diagonales para poder recibir solas y rematar al arco.
+                </p>
+                <!-- Video para Saque de banda -->
+                <div class="video-container">
+                    <video controls>
+                        <source src="images/Saque de banda alternativas defensivas Video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                    <video controls>
+                        <source src="images/Saque de banda alternativas defensivas.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+            
+            <style>
+                .section {
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                }
+            
+                .section h1 {
+                    font-size: 2em;
+                    color: #444;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            
+                .section h2 {
+                    font-size: 1.5em;
+                    color: #555;
+                    margin-top: 30px;
+                    margin-bottom: 10px;
+                }
+            
+                .section p {
+                    font-size: 1em;
+                    line-height: 1.5;
+                    color: #666;
+                }
+            
+                .video-container {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+            
+                .video-container video {
+                    flex: 1;
+                    min-width: 200px;
+                    max-width: 400px;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            </style>
+            
+        </div>
+    </div>
+
+    <!-- Sección de contacto al final de la página -->
+    <div class="contact">
+        <div class="contact_info">
+            <!-- Social Icons -->
+            <div class="social_icons">
+                <a href="https://www.instagram.com/cd4_analitycs/profilecard/?igsh=aXp1a2tvOWhncHVo" target="_blank" title="Logotipo de Instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670125.png" alt="Instagram" />
+                </a>
+                <a href="mailto:CD4analitycs@gmail.com" title="Gmail">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Correo" />
+                </a>
+                <a href="https://wa.me/573133930967" target="_blank" title="WhatsApp">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" />
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <p>Correo: <a href="mailto:CD4analitycs@gmail.com">CD4analitycs@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/573133930967">+57 313 393 0967</a></p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId, link) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Quitar la clase active de todos los enlaces
+            document.querySelectorAll('.sidebar a').forEach(a => {
+                a.classList.remove('active');
+            });
+            // Añadir la clase active al enlace seleccionado
+            link.classList.add('active');
+        }
+    </script>
+</body>
+</html>
