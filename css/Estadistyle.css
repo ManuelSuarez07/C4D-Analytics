@@ -1,0 +1,44 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E071D;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+header {
+    background-color: #882286;
+    padding: 1rem;
+}
+
+h1, h2 {
+    color: #FFFFFF;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.section-block {
+    border: 1px solid #FFFFFF;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+    background-color: #2E0A2D;
+}
+
+#team-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #EFEFEF;
+}
+
+.analysis-section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
